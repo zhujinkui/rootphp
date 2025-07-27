@@ -1,4 +1,4 @@
-FROM hyperf/hyperf:8.1-alpine-v3.18-swoole-slim-v6.0.2
+FROM hyperf/hyperf:8.1-alpine-v3.18-swoole-v5.0
 
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT"
 
