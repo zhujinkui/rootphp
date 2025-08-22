@@ -3,11 +3,16 @@ FROM hyperf/hyperf:8.1-alpine-v3.18-swoole-v5.0
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT"
 
 # ---------- env settings ----------
+#SWOOLE版本
 ARG SW_VERSION
+#Composer版本
 ARG COMPOSER_VERSION
-ARG PHP_BUILD_VERSION
+#工作目录
 ARG WORKPATH
+# 时区
 ARG TIMEZONE
+# 添加缓存破坏器
+ARG CACHE_BUSTER
 
 ENV WORKPATH=${WORKPATH} \
     SW_VERSION=${SW_VERSION:-"v5.0"} \
@@ -15,9 +20,6 @@ ENV WORKPATH=${WORKPATH} \
     COMPOSER_ALLOW_SUPERUSER=1 \
     TIMEZONE=${TIMEZONE:-"Asia/Shanghai"} \
     PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make php81-dev php81-pear pkgconf re2c pcre-dev pcre2-dev zlib-dev libtool automake libaio-dev openssl-dev curl-dev"
-
-# 添加缓存破坏器
-ARG CACHE_BUSTER=1
 
 # 系统依赖安装
 RUN set -ex \
@@ -84,4 +86,5 @@ RUN set -ex \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
 EXPOSE 9501
+
 ENTRYPOINT ["php", "/www/bin/hyperf.php", "start"]

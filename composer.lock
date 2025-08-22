@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "794211a0d1ff831a4833b663fddb5db0",
+    "content-hash": "82ba3dde6260b1031525fdeff164e197",
     "packages": [
         {
             "name": "96qbhy/hyperf-auth",
@@ -6436,6 +6436,69 @@
                 "source": "https://github.com/Yurunsoft/YurunOAuthLogin/tree/v3.1.0"
             },
             "time": "2023-10-17T06:15:44+00:00"
+        },
+        {
+            "name": "zhujinkui/rootphp",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/www/rootphp",
+                "reference": "caa91fc91e4cdfcc5a8e62a023af524cf5c3275b"
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "96qbhy/hyperf-auth": "^2.6",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "hyperf/constants": "^2.2.33",
+                "hyperf/logger": "~2.2.0",
+                "hyperf/validation": "^2.2.13",
+                "mockery/mockery": "^1.0",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^10.0",
+                "swoole/ide-helper": "dev-master"
+            },
+            "suggest": {
+                "swow/swow": "Required to create swow components."
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "Zhujinkui\\Rootphp\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zhujinkui\\Rootphp\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "HyperfTest\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit -c phpunit.xml --colors=always"
+                ],
+                "analyse": [
+                    "phpstan analyse --memory-limit 1024M -l 0 ./src"
+                ],
+                "cs-fix": [
+                    "php-cs-fixer fix $1"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "hyperf",
+                "php"
+            ],
+            "transport-options": {
+                "relative": false
+            }
         }
     ],
     "packages-dev": [
@@ -10055,7 +10118,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpgangsta/googleauthenticator": 20
+        "phpgangsta/googleauthenticator": 20,
+        "zhujinkui/rootphp": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

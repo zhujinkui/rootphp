@@ -10,15 +10,19 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace App\Controller;
+namespace Zhujinkui\Rootphp\Controller;
 
+use Hyperf\Contract\ContainerInterface;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Psr\Container\ContainerInterface;
+use Qbhy\HyperfAuth\AuthManager;
+use Zhujinkui\Rootphp\Traits\ResponseData;
 
 abstract class AbstractController
 {
+    use ResponseData;
+
     #[Inject]
     protected ContainerInterface $container;
 
@@ -27,4 +31,8 @@ abstract class AbstractController
 
     #[Inject]
     protected ResponseInterface $response;
+
+    #[Inject]
+    protected AuthManager $auth_manager;
+
 }
